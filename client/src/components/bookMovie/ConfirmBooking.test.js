@@ -1,0 +1,70 @@
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import ConfirmBooking from './ConfirmBooking';
+
+// Mock the useNavigate hook
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => jest.fn(),
+}));
+
+describe('ConfirmBooking component', () => {
+  const mockBookingResult = {
+    bookingId: '123456',
+    ticketType: {
+      adult: 2,
+      child: 1,
+      senior: 0,
+    },
+    rows: [{ row: 1 }, { row: 2 }],
+    seats: [{ seatNumber: 3 }, { seatNumber: 4 }],
+    customerEmail: 'test@example.com',
+    price: 150,
+  };
+
+  const mockMovie = {
+    title: 'Test Movie',
+    img_poster: 'test-poster.jpg',
+    genre: 'Action',
+    ageRestriction: 16,
+  };
+
+  const mockScreening = {
+    theaterName: 'Test Theater',
+    date: '2023-12-07T12:00:00',
+  };
+
+  it('renders ConfirmBooking component with booking information', () => {
+    render(
+      <ConfirmBooking
+        bookingResult={mockBookingResult}
+        movie={mockMovie}
+        screening={mockScreening}
+      />
+    );
+
+    // Write assertions based on your component structure
+    expect(screen.getByText('Tack för din bokning!')).toBeInTheDocument();
+    expect(screen.getByText('Film:')).toBeInTheDocument();
+    expect(screen.getByText('Epost:')).toBeInTheDocument();
+    // Add more assertions as needed
+  });
+
+  it('calls navigate function when the "Hem" button is clicked', () => {
+    const mockNavigate = jest.fn();
+    jest.spyOn(require('react-router-dom'), 'useNavigate').mockReturnValue(mockNavigate);
+
+    render(
+      <ConfirmBooking
+        bookingResult={mockBookingResult}
+        movie={mockMovie}
+        screening={mockScreening}
+      />
+    );
+
+    fireEvent.click(screen.getByText('Hem'));
+
+    // Assert that the navigate function was called with the correct argument
+    expect(mockNavigate).toHaveBeenCalledWith('/');
+  });
+});

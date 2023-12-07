@@ -11,7 +11,7 @@ export default function BookingTicketsForm({ inputValues, setInputValues }) {
     }, []);
     function handleChange(e) {
         setInputValues({ ...inputValues, [e.target.name]: e.target.value })
-        
+
     }
     return (
         <div className="text-white flex flex-col w-4/5 items-center m-auto">
@@ -27,11 +27,11 @@ export default function BookingTicketsForm({ inputValues, setInputValues }) {
             </div>
             <div className="flex flex-col">
                 <label className="font-inconsolata" htmlFor="email">Fyll i mailadress</label>
-                <input onChange={handleChange} name="email" value={inputValues.email} className="py-2 px-4 rounded w-[16em] text-black" type="text" />
+                <input onChange={handleChange} data-testid="email-input" name="email" value={inputValues.email} className="py-2 px-4 rounded w-[16em] text-black" type="text" />
                 <label className="font-inconsolata mt-4" htmlFor="re-email">Bekräfta mailadress</label>
-                <input onChange={handleChange} name="reEmail" value={inputValues.reEmail} className="py-2 px-4 rounded text-black" type="text" />
+                <input onChange={handleChange} data-testid="re-email-input" name="reEmail" value={inputValues.reEmail} className="py-2 px-4 rounded text-black" type="text" />
                 <label className="font-inconsolata mt-4" htmlFor="email">Mobiltelefon</label>
-                <input onChange={handleChange} name="phone" value={inputValues.phone} className="py-2 px-4 rounded mb-10 text-black" type="text" />
+                <input onChange={handleChange} data-testid="phone-input" name="phone" value={inputValues.phone} className="py-2 px-4 rounded mb-10 text-black" type="text" />
             </div>
         </div>
     )
