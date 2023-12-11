@@ -3,7 +3,7 @@ import TicketCounter from "./TicketCounter";
 import renderer from "react-test-renderer";
 
 jest.mock('../../react-easier', () => ({
-  useStates: jest.fn(() => ({ adult: 0, child: 1, senior: 2})), // Sets value of the amount of people
+  useStates: jest.fn(() => ({ adult: 0, child: 1, senior: 2})), // Sets value of the amount of people (mockdata)
 }));
 
   describe('TicketCounter', () => {
@@ -17,11 +17,15 @@ jest.mock('../../react-easier', () => ({
           setSeats={setSeatsMock}
         />
       );
+      // get mockdata text
+      let adult = screen.getByText('0');
+      let child = screen.getByText('1');
+      let senior = screen.getByText('2');
 
       // Check if mockdata values are in the document
-      expect(screen.getByText('0')).toBeInTheDocument(); // adult
-      expect(screen.getByText('1')).toBeInTheDocument(); // child
-      expect(screen.getByText('2')).toBeInTheDocument(); // senior
+      expect(adult).toBeInTheDocument(); 
+      expect(child).toBeInTheDocument(); 
+      expect(senior).toBeInTheDocument();
     });
 
     test("snapshot testing", () => {

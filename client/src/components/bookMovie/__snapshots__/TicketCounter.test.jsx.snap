@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot testing 1`] = `
+exports[`TicketCounter snapshot testing 1`] = `
 <div
   className="flex flex-col justify-evenly p-8 text-center text-xl text-white sm:mt-40 sm:flex-row sm:text-2xl lg:w-[80%]"
 >
