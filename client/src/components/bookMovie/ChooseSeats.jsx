@@ -192,7 +192,7 @@ export default function ChooseSeats({ screening, seats, setSeats}) {
             }
             })}
           </p>}
-          {toggle && <p className="text-red-500">Välj andra säten, ett eller flera säten av dom du försökte välja är redan bokade</p>}
+          {toggle && <p className="text-red-500">Välj andra säten</p>}
         </div>
     </div>
   )

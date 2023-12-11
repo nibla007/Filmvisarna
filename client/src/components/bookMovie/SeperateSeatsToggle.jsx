@@ -1,10 +1,11 @@
-import { useStates } from "react-easier"
+import { useStates } from "../../react-easier"
 //eslint-disable-next-line
 export default function SeperateSeatsToggle({setSeats}) {
     const s = useStates("toggleSeparateSeats", {toggle: false})
 
-    const handleChecked = (e) => {
-        s.toggle = e.target.checked
+    // If target is checked(toggle = true) then setSeats to empty array
+    const handleChecked = (event) => {
+        s.toggle = event.target.checked
         setSeats([])
     }
 
