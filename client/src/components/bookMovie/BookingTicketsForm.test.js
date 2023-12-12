@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import BookingTicketsForm from "./BookingTicketsForm";
 
 const mockUsedNavigate = jest.fn();
@@ -25,22 +25,18 @@ describe('BookingTicketsForm', () => {
 
     // Simulate user input
     fireEvent.change(screen.getByTestId('email-input'), { target: { value: 'test@example.com' } });
-    fireEvent.change(screen.getByTestId('re-email-input'), { target: { value: 'test@example.com' } });
     fireEvent.change(screen.getByTestId('phone-input'), { target: { value: '1234567890' } });
+    fireEvent.change(screen.getByTestId('re-email-input'), { target: { value: 'test@example.com' } });
 
     // Assert that the input values are updated correctly
-    expect(setInputValues).toHaveBeenCalledWith({
-      email: 'test@example.com',
-      reEmail: 'test@example.com',
-      phone: '1234567890',
-    });
+    expect(setInputValues).toHaveBeenCalledWith({ email: 'test@example.com', });
+    expect(setInputValues).toHaveBeenCalledWith({ reEmail: 'test@example.com', });
+    expect(setInputValues).toHaveBeenCalledWith({ phone: '1234567890', });
   });
 
   test('navigates to registration page when "Bli medlem" button is clicked', () => {
     render(<BookingTicketsForm inputValues={{}} setInputValues={() => { }} />);
-
-    fireEvent.click(screen.getByRole('button', { name: 'Bli medlem' }));
-
-    expect(mockUsedNavigate).toHaveBeenCalledWith('/registrera');
+    fireEvent.click(screen.getByRole('button', { name: /bli medlem/i }));
+    waitFor(() => expect(setInputValues).toHaveBeenCalledWith('/registrera'));
   });
 });

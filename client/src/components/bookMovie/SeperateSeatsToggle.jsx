@@ -1,4 +1,4 @@
-import { useStates } from "react-easier"
+import { useStates } from "../../react-easier"
 //eslint-disable-next-line
 export default function SeperateSeatsToggle({setSeats}) {
     const s = useStates("toggleSeparateSeats", {toggle: false})

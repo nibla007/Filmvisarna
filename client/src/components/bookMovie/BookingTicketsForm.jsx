@@ -7,7 +7,9 @@ export default function BookingTicketsForm({ inputValues, setInputValues }) {
     const t = useStates("globalToggle")
     const navigate = useNavigate()
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (typeof window !== 'undefined') {
+            window.scrollTo(0, 0);
+        }
     }, []);
     function handleChange(e) {
         setInputValues({ ...inputValues, [e.target.name]: e.target.value })

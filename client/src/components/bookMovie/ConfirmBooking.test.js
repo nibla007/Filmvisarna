@@ -3,9 +3,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import ConfirmBooking from './ConfirmBooking';
 
 // Mock the useNavigate hook
+const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useNavigate: () => jest.fn(),
+  useNavigate: () => mockNavigate,
 }));
 
 describe('ConfirmBooking component', () => {
@@ -42,12 +43,10 @@ describe('ConfirmBooking component', () => {
         screening={mockScreening}
       />
     );
-
-    // Write assertions based on your component structure
+    
     expect(screen.getByText('Tack för din bokning!')).toBeInTheDocument();
     expect(screen.getByText('Film:')).toBeInTheDocument();
     expect(screen.getByText('Epost:')).toBeInTheDocument();
-    // Add more assertions as needed
   });
 
   it('calls navigate function when the "Hem" button is clicked', () => {
@@ -63,8 +62,6 @@ describe('ConfirmBooking component', () => {
     );
 
     fireEvent.click(screen.getByText('Hem'));
-
-    // Assert that the navigate function was called with the correct argument
     expect(mockNavigate).toHaveBeenCalledWith('/');
   });
 });
