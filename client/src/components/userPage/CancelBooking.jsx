@@ -47,8 +47,8 @@ export default function CancelBooking({booking, setToggle}) {
                         return seat.seatNumber + ", "
                     }
                 })}</p></li>
-                <li className="flex justify-between"> <p className="text-gold">Pris:</p> <p>{booking.price}kr</p></li>
-                <li className="flex justify-between"> <p className="text-gold mb-6">Status:</p> <p>{booking.status ? "Bokad" : "Avbokad"}</p></li>
+                <li className="flex justify-between"> <p className="text-gold" data-testid="booking-price">Pris:</p> <p data-testid="real-price">{booking.price} kr</p></li>
+                <li className="flex justify-between"> <p className="text-gold mb-6" data-testid='status'>Status:</p> <p data-testid="real-status">{booking.status ? "Bokad" : "Avbokad"}</p></li>
                 <li className="flex justify-evenly"> <button onClick={() => cancelBooking(booking._id)} className={` text-lg rounded-md px-4 py-1 bg-red-600 text-white`}>Avboka</button><button onClick={() => setToggle(false)} className={`rounded-md text-lg px-4 py-1 bg-gold text-black`}>Tillbaka</button> </li>
               </ul>
             </div>

@@ -73,7 +73,7 @@ export default function BookMovie() {
         <TicketCounter screening={screening} movie={movie} seats={seats} setSeats={setSeats}/>
         <ChooseSeats screening={screening} seats={seats} setSeats={setSeats}/>
 
-        <button className="bg-gold text-black-100 rounded-md px-6 p-2" onClick={counters.total === seats.length ? navToBookingP2 : undefined}>Fortsätt</button>
+        <button className="bg-gold text-black-100 rounded-md px-6 p-2" data-cy="continue" onClick={counters.total === seats.length ? navToBookingP2 : undefined}>Fortsätt</button>
     </section>}
     </>
   );

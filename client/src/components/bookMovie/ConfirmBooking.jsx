@@ -16,7 +16,7 @@ export default function ConfirmBooking({ nodeMailerError, bookingResult, movie, 
 
       <div className="text-center mt-4 w-full h-full">
 
-        <h1 className={` top-1/4 font-bold mb-10 text-4xl`}>
+        <h1 className={` top-1/4 font-bold mb-10 text-4xl`} data-cy='thank-you'>
           Tack för din bokning!
         </h1>
         {bookingResult && movie && screening &&

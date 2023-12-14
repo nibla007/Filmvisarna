@@ -93,7 +93,8 @@ export default function MainNav({ active, currentUser }) {
             <li
               className={`${
                 active === "minasidor" ? "text-white" : "text-gold"
-              } cursor-pointer hover:text-white`}
+                } cursor-pointer hover:text-white`} data-cy="mina-sidor"
+                
             >
               Mina Sidor
             </li>

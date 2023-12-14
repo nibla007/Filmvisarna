@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useStates } from '../../react-easier';
+import { useStates } from 'react-easier';
 import PropTypes from "prop-types";
 import newDateFormat from "../../service/newDateFormat";
 
@@ -93,7 +93,7 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
             >
               -
             </button>
-            <p className="mx-3 text-2xl sm:text-3xl">{counters.adult}</p>
+            <p className="mx-3 text-2xl sm:text-3xl" data-cy='adult'>{counters.adult}</p>
             <button
               className="text-3xl sm:text-4xl"
               name="adult"
@@ -113,7 +113,7 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
             >
               -
             </button>
-            <p className="mx-3 text-2xl sm:text-3xl">{counters.child}</p>
+            <p className="mx-3 text-2xl sm:text-3xl" data-cy='child'>{counters.child}</p>
             <button
               className="text-3xl sm:text-4xl"
               name="child"
@@ -133,7 +133,7 @@ export default function TicketCounter({ screening, movie, seats, setSeats }) {
             >
               -
             </button>
-            <p className="mx-3 text-2xl sm:text-3xl">{counters.senior}</p>
+            <p className="mx-3 text-2xl sm:text-3xl" data-cy='senior'>{counters.senior}</p>
             <button
               className="text-3xl sm:text-4xl"
               name="senior"

@@ -74,7 +74,8 @@ export default function MyPages() {
                 {userData.some((booking) => booking.status) ? (
                   <div className="mb-10 flex items-center ">
                     <h4
-                      className={`ml-8 mr-4 text-xl text-gold md:text-2xl lg:text-3xl `}
+                      className={`ml-8 mr-4 text-xl text-gold md:text-2xl lg:text-3xl`}
+                      data-testid="bookings"
                     >
                       Aktuella bokningar
                     </h4>

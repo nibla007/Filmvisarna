@@ -46,6 +46,7 @@ export default function UserBookingCard({
             <div
               className="mx-auto mb-2 flex w-20 cursor-pointer whitespace-nowrap underline xs:mb-0"
               onClick={() => setExpanded(!isExpanded)}
+              data-cy="mer-info"
             >
               {isExpanded ? "Mindre" : "Mer info"}
               {isExpanded && (
@@ -107,6 +108,7 @@ export default function UserBookingCard({
                     disabled={!booking.status}
                     className="mt-4 rounded-lg bg-red-600 px-3 py-1"
                     onClick={() => cancel(booking)}
+                    data-cy="avboka"
                   >
                     Avboka
                   </button>

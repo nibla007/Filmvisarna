@@ -2,7 +2,7 @@ import { render, fireEvent } from "@testing-library/react";
 import SeperateSeatsToggle from "./SeperateSeatsToggle";
 
 describe('SeperateSeatsToggle', () => {
-  test('toggle switch works', () => {
+  test('Seperate seats toggle works', () => {
     const setSeatsMock = jest.fn();
 
     const { getByLabelText } = render(

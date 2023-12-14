@@ -161,6 +161,7 @@ export default function BookingTickets() {
                 <button
                   onClick={handleBooking}
                   className={`m-auto mb-10 w-36 rounded bg-gold px-6 py-2 text-black`}
+                  data-cy="book-movie"
                 >
                   Boka
                 </button>

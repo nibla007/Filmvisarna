@@ -2,15 +2,26 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "test-cypress": "cypress run --browser chrome",
+    "test-cypress-ui": "cypress open --browser chrome"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "./cypress/step_definitions/**/*.js"
+    ]
   },
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^19.2.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@cypress/webpack-preprocessor": "^6.0.0",
+    "cypress": "^13.6.0",
     "framer-motion": "^10.16.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

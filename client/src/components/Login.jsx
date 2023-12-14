@@ -104,6 +104,7 @@ export default function Login({ setCurrentUser }) {
         <button
           onClick={handleLogin}
           className="login-btn self-center rounded-md bg-gold p-1 px-4 text-black-100"
+          data-cy='login'
         >
           Logga in
         </button>
