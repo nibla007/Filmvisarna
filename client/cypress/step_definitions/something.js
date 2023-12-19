@@ -4,7 +4,7 @@ Given('I am on the ticket page', () => {
   cy.visit(url);
 });
 When('I click on the + buttons', () => {
-  cy.get('.text-3xl.sm\\:text-4xl').click({multiple: true});
+  cy.get('.text-3xl.sm\\:text-4xl').click({ multiple: true });
 });
 Then('the counter should have increased by one', () => {
   cy.get('[data-cy="adult"]').should('be.visible');
@@ -29,13 +29,13 @@ When('I click on {string}', (text) => {
 
 When('I have canceled the booking', () => {
   cy.get('.hamburger-menu-icon').click();
-  cy.get('[data-cy="mina-sidor"]').click({force: true});
-  cy.get('[data-cy="mer-info"').click({multiple: true});
+  cy.get('[data-cy="mina-sidor"]').click({ force: true });
+  cy.contains('Mer info').click();
   cy.get('[data-cy="avboka"]').click();
   cy.get('.bg-red-600').click();
 });
 When('I have logged out', () => {
-  cy.get('.text-red-500').click({force: true});
+  cy.get('.text-red-500').click({ force: true });
 });
 
 When('I have seen {string}', (text) => {

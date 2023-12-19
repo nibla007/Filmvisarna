@@ -1,7 +1,7 @@
-const { defineConfig } = require("cypress");
-const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
-const { createEsbuildPlugin } = require("@badeball/cypress-cucumber-preprocessor/esbuild");
-const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+import { defineConfig } from "cypress";
+import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
+import { createEsbuildPlugin } from "@badeball/cypress-cucumber-preprocessor/esbuild";
+import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 
 const baseUrl = "http://localhost:5173";
 
@@ -17,7 +17,7 @@ async function setupNodeEvents(on, config) {
   return config;
 }
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     defaultCommandTimeout: 15000,
     baseUrl,
