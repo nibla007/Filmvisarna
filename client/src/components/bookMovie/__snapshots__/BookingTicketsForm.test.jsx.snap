@@ -9,7 +9,6 @@ exports[`BookingTicketsForm Snapshot testing 1`] = `
   >
     <h4
       className="text-2xl"
-      data-testid="text-2xl"
     >
       Är du medlem? (valfritt)
     </h4>
@@ -56,7 +55,7 @@ exports[`BookingTicketsForm Snapshot testing 1`] = `
     </label>
     <input
       className="py-2 px-4 rounded w-[16em] text-black"
-      data-testid="email"
+      data-testid="email-input"
       name="email"
       onChange={[Function]}
       type="text"
@@ -69,7 +68,7 @@ exports[`BookingTicketsForm Snapshot testing 1`] = `
     </label>
     <input
       className="py-2 px-4 rounded text-black"
-      data-testid="email-again"
+      data-testid="re-email-input"
       name="reEmail"
       onChange={[Function]}
       type="text"
@@ -82,7 +81,7 @@ exports[`BookingTicketsForm Snapshot testing 1`] = `
     </label>
     <input
       className="py-2 px-4 rounded mb-10 text-black"
-      data-testid="phone"
+      data-testid="phone-input"
       name="phone"
       onChange={[Function]}
       type="text"

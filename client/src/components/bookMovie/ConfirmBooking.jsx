@@ -9,9 +9,7 @@ export default function ConfirmBooking({ nodeMailerError, bookingResult, movie, 
 
   const navigate = useNavigate()
   useEffect(() => {
-    if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
-    }
   }, []);
   return (
     <div className="w-3/4 md:w-7/12 lg:w-[35rem] rounded-md text-white m-auto">

@@ -2,6 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ConfirmBooking from './ConfirmBooking';
 
+global.scrollTo = jest.fn();
+
 // Mock the useNavigate hook
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({

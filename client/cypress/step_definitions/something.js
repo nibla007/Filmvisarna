@@ -1,11 +1,15 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
 const url = 'http://localhost:5173/bokning/65533511396b28e174d7efed'
+
 Given('I am on the ticket page', () => {
   cy.visit(url);
 });
+
 When('I click on the + buttons', () => {
   cy.get('.text-3xl.sm\\:text-4xl').click({ multiple: true });
 });
+
 Then('the counter should have increased by one', () => {
   cy.get('[data-cy="adult"]').should('be.visible');
   cy.get('[data-cy="child"]').should('be.visible');
@@ -20,7 +24,7 @@ Given('that I am logged in', () => {
 });
 
 When('I have clicked on a place to sit', () => {
-  cy.get('[id="row1seat-3"]').click();
+  cy.get('[id="row8seat-2"]').click();
 });
 
 When('I click on {string}', (text) => {
@@ -34,6 +38,7 @@ When('I have canceled the booking', () => {
   cy.get('[data-cy="avboka"]').click();
   cy.get('.bg-red-600').click();
 });
+
 When('I have logged out', () => {
   cy.get('.text-red-500').click({ force: true });
 });

@@ -40,11 +40,11 @@ describe("BookingTicketsForm", () => {
 
   test("Testing BookingTicketsForm input", () => {
     render(<BookingTicketsForm inputValues={{}} setInputValues={() => {}} />)
-    let emailInput = screen.getByTestId("email");
+    let emailInput = screen.getByTestId("email-input");
     fireEvent.change(emailInput, { target: { value: "test@gmail.com" } });
-    let emailAgainInput = screen.getByTestId("email-again");
+    let emailAgainInput = screen.getByTestId("re-email-input");
     fireEvent.change(emailAgainInput, { target: { value: "test@gmail.com" } });
-    let phoneInput = screen.getByTestId("phone");
+    let phoneInput = screen.getByTestId("phone-input");
     fireEvent.change(phoneInput, { target: { value: "0703334477" } });
 
     expect(emailInput.value).toBe("test@gmail.com");
