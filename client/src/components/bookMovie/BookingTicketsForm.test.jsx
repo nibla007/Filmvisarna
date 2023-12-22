@@ -12,25 +12,18 @@ jest.mock('react-router-dom', () => ({
 
 
 describe("BookingTicketsForm", () => {
+
   test("Getting text values", () => {
-    render(<BookingTicketsForm inputValues={{}} setInputValues={() => {}} />);
-    //Gets the text and puts them into variable...
-    let member = screen.getByText("Är du medlem? (valfritt)");
-    let forhands = screen.getByText("Förhandsvisningar & medlemskvällar.");
-    let rabatt = screen.getByText("Rabatt på dryck och snacks");
-    let emailText = screen.getByText("Fyll i mailadress");
-    let emailAgaintext = screen.getByText("Bekräfta mailadress");
-    let phone = screen.getByText("Mobiltelefon");
-    let something = screen.getByLabelText
-    
-    // Expects text to be the expected text...
-    expect(member.textContent).toBe("Är du medlem? (valfritt)");
-    expect(forhands.textContent).toBe("Förhandsvisningar & medlemskvällar.");
-    expect(rabatt.textContent).toBe("Rabatt på dryck och snacks");
-    expect(emailText.textContent).toBe("Fyll i mailadress");
-    expect(emailAgaintext.textContent).toBe("Bekräfta mailadress");
-    expect(phone.textContent).toBe("Mobiltelefon");
+    render(<BookingTicketsForm inputValues={{}} setInputValues={() => { }} />);
+    // Expects labels to exist
+    expect(screen.getByText("Är du medlem? (valfritt)")).toBeInTheDocument();
+    expect(screen.getByText("Förhandsvisningar & medlemskvällar.")).toBeInTheDocument();
+    expect(screen.getByText("Rabatt på dryck och snacks")).toBeInTheDocument();
+    expect(screen.getByText("Fyll i mailadress")).toBeInTheDocument();
+    expect(screen.getByText("Bekräfta mailadress")).toBeInTheDocument();
+    expect(screen.getByText("Mobiltelefon")).toBeInTheDocument();
   });
+
   // takes a screenshot of the site... kinda
   test("Snapshot testing", () => {
     let setInputValues = jest.fn();
@@ -38,34 +31,25 @@ describe("BookingTicketsForm", () => {
     expect(snap).toMatchSnapshot("");
   });
 
-  test("Testing BookingTicketsForm input", () => {
-    render(<BookingTicketsForm inputValues={{}} setInputValues={() => {}} />)
-    let emailInput = screen.getByTestId("email-input");
-    fireEvent.change(emailInput, { target: { value: "test@gmail.com" } });
-    let emailAgainInput = screen.getByTestId("re-email-input");
-    fireEvent.change(emailAgainInput, { target: { value: "test@gmail.com" } });
-    let phoneInput = screen.getByTestId("phone-input");
-    fireEvent.change(phoneInput, { target: { value: "0703334477" } });
+  test('Updates input values correctly', () => {
+    render(<BookingTicketsForm inputValues={{}} setInputValues={mockUsedNavigate} />);
 
-    expect(emailInput.value).toBe("test@gmail.com");
-    expect(emailAgainInput.value).toBe("test@gmail.com");
-    expect(phoneInput.value).toBe("0703334477");
+    // Simulate user input
+    fireEvent.change(screen.getByTestId('email-input'), { target: { value: 'test@example.com' } });
+    fireEvent.change(screen.getByTestId('phone-input'), { target: { value: '1234567890' } });
+    fireEvent.change(screen.getByTestId('re-email-input'), { target: { value: 'test@example.com' } });
+
+    // Assert that the input values are updated correctly
+    expect(mockUsedNavigate).toHaveBeenCalledWith({ email: 'test@example.com', });
+    expect(mockUsedNavigate).toHaveBeenCalledWith({ reEmail: 'test@example.com', });
+    expect(mockUsedNavigate).toHaveBeenCalledWith({ phone: '1234567890', });
   });
 
-  test("Clicking the 'Bli medlem' button navigates to '/registrera' and expects the 'Bli medlem' text", () => {
-    render(<BookingTicketsForm inputValues={{}} setInputValues={() => {}} />)
+  test('Navigates to registration page when "Bli medlem" button is clicked', () => {
+    render(<BookingTicketsForm inputValues={{}} setInputValues={() => { }} />);
 
-    let bliMedlemButton = screen.getByRole('button', { name: 'Bli medlem' });
-    
-    fireEvent.click(bliMedlemButton);
-
-    let bliMedlemText = screen.getByText("Bli medlem"); 
-    expect(mockUsedNavigate).toHaveBeenCalledWith('/registrera');
-    expect(bliMedlemText).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Bli medlem' }));
+    expect(mockUsedNavigate).toHaveBeenLastCalledWith('/registrera');
+    expect(screen.getByText("Bli en del av familjen!")).toBeInTheDocument();
   });
 });
-
-  
-
-
-
