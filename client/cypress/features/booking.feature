@@ -1,4 +1,4 @@
-Feature: Bookings
+Feature: Booking
 
   Background: Ticket page
     Given I am on the ticket page
