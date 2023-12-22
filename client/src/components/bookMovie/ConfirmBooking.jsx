@@ -6,10 +6,12 @@ import { useEffect } from 'react';
 //eslint-disable-next-line
 export default function ConfirmBooking({ nodeMailerError, bookingResult, movie, screening }) {
 
- 
+
   const navigate = useNavigate()
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   }, []);
   return (
     <div className="w-3/4 md:w-7/12 lg:w-[35rem] rounded-md text-white m-auto">
