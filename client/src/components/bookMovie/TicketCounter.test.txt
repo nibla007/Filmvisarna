@@ -28,17 +28,19 @@
 //       expect(senior).toBeInTheDocument();
 //     });
 
-//     test("snapshot testing", () => {
-//       const setSeatsMock = jest.fn();
-//       const snap = renderer.create(<TicketCounter
-//           screening={{}}
-//           movie={{}}
-//           seats={[]}
-//           setSeats={setSeatsMock}
-//         />).toJSON();
-//       expect(snap).toMatchSnapshot("");
-//     });
-//   });
+    test("snapshot testing", () => {
+      const setSeatsMock = jest.fn();
+      const snap = renderer.create(<TicketCounter
+          screening={{}}
+          movie={{}}
+          seats={[]}
+          setSeats={setSeatsMock}
+        />).toJSON();
+      expect(snap).toMatchSnapshot("");
+    });
+  });
+
+  We didn't like that the ticket counter numbers disappeared... so we chose cypress.. yes
 
   
 

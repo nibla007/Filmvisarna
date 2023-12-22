@@ -16,7 +16,7 @@ global.fetch = jest.fn(() =>
 window.alert = jest.fn();
 
 describe('CancelBooking', () => {
-  test('Checking some text-content when canceling a show', () => {
+  test('Checking text-content when canceling a show', () => {
     const setToggleMock = jest.fn();
     // Fake bookingInfo
     const bookingData = {

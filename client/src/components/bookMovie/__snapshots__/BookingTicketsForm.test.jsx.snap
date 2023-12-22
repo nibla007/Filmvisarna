@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookingTicketsForm snapshot testing 1`] = `
+exports[`BookingTicketsForm Snapshot testing 1`] = `
 <div
   className="text-white flex flex-col w-4/5 items-center m-auto"
 >

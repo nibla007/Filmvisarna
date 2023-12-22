@@ -21,6 +21,7 @@ describe("BookingTicketsForm", () => {
     let emailText = screen.getByText("Fyll i mailadress");
     let emailAgaintext = screen.getByText("Bekräfta mailadress");
     let phone = screen.getByText("Mobiltelefon");
+    let something = screen.getByLabelText
     
     // Expects text to be the expected text...
     expect(member.textContent).toBe("Är du medlem? (valfritt)");
@@ -31,7 +32,7 @@ describe("BookingTicketsForm", () => {
     expect(phone.textContent).toBe("Mobiltelefon");
   });
   // takes a screenshot of the site... kinda
-  test("snapshot testing", () => {
+  test("Snapshot testing", () => {
     let setInputValues = jest.fn();
     const snap = renderer.create(<BookingTicketsForm inputValues={{}} setInputValues={setInputValues} />).toJSON();
     expect(snap).toMatchSnapshot("");
