@@ -43,7 +43,6 @@ describe('CancelBooking', () => {
     };
 
     render(<CancelBooking booking={bookingData} setToggle={setToggleMock} />);
-    // For some reason there's two Terminator 3 texts, I don't know why.
     let titles = screen.getAllByText('Terminator 3');
     let youSureCancel = screen.getByText('Är du säker på att du vill avboka?');
     let date = screen.getByText('Torsdag 14:e december');
