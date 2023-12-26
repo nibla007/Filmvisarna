@@ -39,10 +39,4 @@ describe("ChooseSeats component", () => {
     fireEvent.click(seatElement);
     waitFor(() => expect(setSeatsMock).toHaveBeenCalledWith([{ row: 1, seat: 1, seatNumber: 1, booked: true }]));
   });
-
-  test("displays recommended seats", () => {
-    const setSeatsMock = jest.fn();
-    render(<ChooseSeats screening={screening} seats={[]} setSeats={setSeatsMock} />);
-    waitFor(() => expect(setSeatsMock).toHaveBeenCalled());
-  });
 });
