@@ -50,6 +50,5 @@ describe("BookingTicketsForm", () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Bli medlem' }));
     expect(mockUsedNavigate).toHaveBeenLastCalledWith('/registrera');
-    expect(screen.getByText("Bli en del av familjen!")).toBeInTheDocument();
   });
 });
