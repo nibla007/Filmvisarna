@@ -1,3 +1,22 @@
+# Install modules
+```
+npm install
+```
+# Run Tests
+## Jest
+```
+npm test
+```
+## Cypress
+headless
+```
+npm test-cypress
+```
+headed
+```
+npm test-cypress-ui
+```
+
 # Projektarbete-Filmvisarna
 
 The company Filmvisarna AB is a small cinema chain that wants to start competing locally with SF. They have a couple of movie theaters in Småstad and have secured the rights to show a number of different movie titles.
