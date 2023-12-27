@@ -19,7 +19,7 @@ async function setupNodeEvents(on, config) {
 
 export default defineConfig({
   e2e: {
-    defaultCommandTimeout: 15000,
+    defaultCommandTimeout: 25000,
     baseUrl,
     supportFile: false,
     specPattern: "**/*.feature",

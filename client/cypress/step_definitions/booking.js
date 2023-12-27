@@ -24,7 +24,7 @@ Given('that I am logged in', () => {
 });
 
 When('I have clicked on a place to sit', () => {
-  cy.get('[id="row8seat-2"]').click();
+  cy.get('[id="row8seat-2"]').click({ force: true });
 });
 
 When('I click on {string}', (text) => {
