@@ -49,6 +49,13 @@ describe('ConfirmBooking component', () => {
     expect(screen.getByText('Tack för din bokning!')).toBeInTheDocument();
     expect(screen.getByText('Film:')).toBeInTheDocument();
     expect(screen.getByText('Epost:')).toBeInTheDocument();
+    expect(screen.getByText('Rad:')).toBeInTheDocument();
+    expect(screen.getByText('Plats:')).toBeInTheDocument();
+    expect(screen.getByText('Datum:')).toBeInTheDocument();
+    expect(screen.getByText('Salong:')).toBeInTheDocument();
+    expect(screen.getByText('Pris:')).toBeInTheDocument();
+    expect(screen.getByText('Bokningsnummer:')).toBeInTheDocument();
+    expect(screen.getByText('En bokningsbekräftelse har nu skickats till din email!')).toBeInTheDocument();
   });
 
   it('calls navigate function when the "Hem" button is clicked', () => {
